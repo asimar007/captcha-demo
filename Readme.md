@@ -5,21 +5,26 @@ A simple Express.js application demonstrating Google reCAPTCHA v2 integration fo
 ## Features
 
 - Express.js server implementation
+
 - Google reCAPTCHA v2 ("I'm not a robot" checkbox) integration
+
 - Simple HTML form with client-side CAPTCHA verification
+
 - Server-side CAPTCHA validation endpoint
+
 - Clear error handling and status feedback
 
 ## Installation
 
-1.  Clone the repository:
+1. Clone the repository:
 
 ```
 git clone https://github.com/asimar007/captcha-demo
+
 cd captcha-demo
 ```
 
-2.  Install dependencies:
+2. Install dependencies:
 
 ```
 npm install
@@ -29,17 +34,19 @@ npm install
 
 1.  **Obtain reCAPTCHA Keys**:
 
-    - Visit the [Google reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin)
-    - Create a new site with these settings:
+- Visit the [Google reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin)
 
-      - reCAPTCHA type: v2 "I'm not a robot" Checkbox
-      - Domains: Add `localhost` (for development) and your production domain
+- Create a new site with these settings:
 
-    - Copy the generated Site Key and Secret Key
+- reCAPTCHA type: v2 "I'm not a robot" Checkbox
+
+- Domains: Add `localhost` (for development) and your production domain
+
+- Copy the generated Site Key and Secret Key
 
 ## Running the Application
 
-1.  Start the development server:
+1. Start the development server:
 
 ```
 npm index.js
@@ -49,15 +56,16 @@ npm index.js
 
 - `POST /validate-captcha` - Validate reCAPTCHA response
 
-  - Required parameter: `g-recaptcha-response`
-  - Returns JSON:
+- Required parameter: `g-recaptcha-response`
 
-    ```
-    {
-      "success": boolean,
-      "message": "Validation result message"
-    }
-    ```
+- Returns JSON:
+
+```json
+{
+  "success": true,
+  "message": "Validation result message"
+}
+```
 
 ## Troubleshooting
 
@@ -65,14 +73,16 @@ Common issues and solutions:
 
 1.  **CAPTCHA not showing**:
 
-    - Verify the Site Key is correctly set in index.html
-    - Ensure your domain is whitelisted in Google reCAPTCHA settings
+- Verify the Site Key is correctly set in index.html
+
+- Ensure your domain is whitelisted in Google reCAPTCHA settings
 
 2.  **Validation failures**:
 
-    - Check the Secret Key in index.js matches your reCAPTCHA configuration
-    - Verify network connectivity to Google's servers
+- Check the Secret Key in index.js matches your reCAPTCHA configuration
+
+- Verify network connectivity to Google's servers
 
 3.  **Localhost issues**:
 
-    - Add `127.0.0.1` and `localhost` to allowed domains in reCAPTCHA settings
+- Add `127.0.0.1` and `localhost` to allowed domains in reCAPTCHA settings
