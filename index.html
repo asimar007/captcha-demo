@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAPTCHA Example</title>
+  </head>
+  <body>
+    <h1>Simple CAPTCHA Example</h1>
+
+    <!-- CAPTCHA form -->
+    <form action="/submit" method="POST">
+      <div
+        class="g-recaptcha"
+        data-sitekey="YOUR_GOOGLE_RECAPTCHA_SITE_KEY"
+        data-callback="onCaptchaSuccess"
+      ></div>
+      <input type="hidden" name="captchaResponse" id="captchaResponse" />
+      <br />
+      <button type="submit">Verify</button>
+    </form>
+
+    <!-- Include reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+      function onCaptchaSuccess(response) {
+        document.getElementById("captchaResponse").value = response;
+      }
+    </script>
+  </body>
+</html>
